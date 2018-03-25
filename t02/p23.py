@@ -1,4 +1,4 @@
-from utils.my_math import DivisorsHelper
+from utils.my_math import DivisorsHelper,sum_formn_tom
 
 
 # 28123
@@ -20,7 +20,7 @@ if __name__ == '__main__':
     deficients = []
     perfects = []
     abundants = []
-    for x in range(1, 28123):
+    for x in range(1, 28124):
         t =  just_num(x)
         if t < 0 :
             deficients.append(x)
@@ -36,3 +36,16 @@ if __name__ == '__main__':
     print( 'abundants')
     print( abundants)
 
+    s = set()
+    for m in abundants:
+        for n in abundants:
+            sum = m + n
+            if sum>28123:
+                break
+            s.add(sum)
+
+    total = sum_formn_tom(1,28123)
+    for m in s:
+        total -= m
+
+    print(total)
